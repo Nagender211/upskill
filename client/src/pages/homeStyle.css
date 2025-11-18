@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+}
+.common-padding{
+    padding-block: 100px;
+    padding-inline: 100px;
+}
+@media screen and (max-width: 1224px) {
+    .common-padding{
+        padding-block: 70px;
+        padding-inline: 70px;
+}   
+}
+@media screen and (max-width: 1024px) {
+    .common-padding{
+        padding-block: 70px;
+        padding-inline: 60px;
+}   
+}
+@media screen and (max-width: 768px) {
+    .common-padding{
+        padding-block: 50px;
+        padding-inline: 30px;
+}   
+}
