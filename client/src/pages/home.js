@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../componets/Header'
 import './homeStyle.css'
+import { Link } from 'react-router-dom'
 
 
 
@@ -91,10 +92,11 @@ const Home = () => {
       <Header />
       <div className='common-padding grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 w-full gap-6'>
         {BlogList.map(item=>(
-          <div className='w-full flex flex-col border rounded-xl' key={item.id}>
+          <Link to={`/blog/${item.id}`}>
+            <div className='w-full flex flex-col border rounded-xl' key={item.id}>
           <img src={item.image} alt='' className='w-full object-cover rounded-t-xl'/>
-          <div className='flex flex-col justify-start items-start p-3'>
-            <h1 className='line-clamp-2 font-bold text-xl md:text-2xl font-serif pb-2'>{item.title}</h1>
+          <div className='flex flex-col justify-start items-start p-3 '>
+            <h1 className='line-clamp-2 font-bold text-xl md:text-2xl font-serif pb-2 cursor-pointer'>{item.title}</h1>
             <span className='text-[10px] text-gray-400 font-serif pb-5'>{item.readTime}</span>
             <p className='line-clamp-4 font-normal text-lg md:text-xl font-serif'>{item.para}</p>
 
@@ -117,6 +119,7 @@ const Home = () => {
 
 
         </div>
+          </Link>
         ))}
 
         

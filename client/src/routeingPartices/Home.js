@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import BlogInnerPage from './BlogInnerPage';
 
 // const userList=[
 //   {
@@ -82,7 +84,8 @@ class HomePage extends Component{
     <div className='flex flex-col justify-center px-12 pb-12 min-h-[100vh] items-center'>
       <div className='flex flex-col items-start justify-center'>
         {intialList.map(item=>(
-        <div className='flex flex-col md:flex-row gap-5 py-5' key={item.key}>
+        <Link to={`/blog/${item.id}`} key={item.id} className='w-full'>
+          <div className='flex flex-col md:flex-row gap-5 py-5 cursor-pointer' key={item.key}>
         <img src={item.imageUrl} alt={'this is the pic'} className='w-full md:w-40 h-auto object-cover rounded-md' />
         <div className='relative flex flex-col'>
           <p className='text-base text-gray-400 font-mono pb-2'>{item.topic}</p>
@@ -94,7 +97,9 @@ class HomePage extends Component{
           </div>
         </div>
       </div>
+        </Link>
       ))}
+        
 
       </div>
 

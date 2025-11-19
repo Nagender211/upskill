@@ -45,6 +45,8 @@ import ReadMore from './Hooks/ReadMore';
 import Note from './Hooks/Note';
 import BmiCalculator from './Hooks/BmiCalculator';
 import ApiCall from './Hooks/ApiCall';
+import BlogInnerPage from './routeingPartices/BlogInnerPage';
+import AuthLogin from './routeingPartices/AuthLogin';
 
 
 
@@ -95,6 +97,8 @@ function App() {
       <Route exact path='/hooks/notes' element={<Note />} />
       <Route exact path='/hooks/bmi' element={<BmiCalculator />} />
       <Route exact path='/hooks/api' element={<ApiCall />} />
+      <Route exact path='/blog/:id' element={<BlogInnerPage />} />
+      <Route exact path='/auth' element={<AuthLogin />} />
       {/* <Route  element={<Header  />} /> */}
 
       
