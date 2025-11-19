@@ -47,6 +47,10 @@ import BmiCalculator from './Hooks/BmiCalculator';
 import ApiCall from './Hooks/ApiCall';
 import BlogInnerPage from './routeingPartices/BlogInnerPage';
 import AuthLogin from './routeingPartices/AuthLogin';
+import RegistrionPage from './routeingPartices/RegistrionPage';
+import ProductPage from './routeingPartices/Product';
+import CartPage from './routeingPartices/Cart';
+import ProtectedRoute from './routeingPartices/ProtectedRoute';
 
 
 
@@ -84,7 +88,7 @@ function App() {
       <Route path='/timer' element={<Timer  />} />
       <Route path='/faqs' element={<Faq  />} />
       <Route path='/password-manger' element={<PasswordManger  />} />
-      <Route exact path='/' element={<HomePage  />} />
+      {/* <Route exact path='/' element={<HomePage  />} /> */}
 
       <Route exact path='/about' element={<About  />} />
       <Route exact path='/contact' element={<Contact  />} />
@@ -99,6 +103,12 @@ function App() {
       <Route exact path='/hooks/api' element={<ApiCall />} />
       <Route exact path='/blog/:id' element={<BlogInnerPage />} />
       <Route exact path='/auth' element={<AuthLogin />} />
+      <Route exact path='/regpage' element={<RegistrionPage />} />
+      {/* <Route exact path='/products' element={<ProductPage />} />
+      <Route exact path='/cart' element={<CartPage />} /> */}
+      <Route exact path='/' element={<ProtectedRoute childerns={<HomePage />} />} />
+      <Route exact path='/products' element={<ProtectedRoute childerns={<ProductPage />} />} />
+      <Route exact path='/cart' element={<ProtectedRoute childerns={<CartPage />} />} />
       {/* <Route  element={<Header  />} /> */}
 
       

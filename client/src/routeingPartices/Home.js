@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import BlogInnerPage from './BlogInnerPage';
+// import Cookie from 'js-cookie';
 
 // const userList=[
 //   {
@@ -60,7 +61,11 @@ class HomePage extends Component{
 
   }
   render(){
-    const {intialList}=this.state
+    const {intialList}=this.state;
+    // const jwtToken=Cookie.get('jwt_token');
+    // if(jwtToken === undefined){
+    //   return <Navigate to='/auth' />
+    // }
   return (
     // <div className='flex flex-col justify-center px-12 pb-12'>
     //   <div className='flex flex-col gap-3 justify-center items-center text-center pt-12'>

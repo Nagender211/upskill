@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-
+import Cookie from 'js-cookie';
+import toast from 'react-hot-toast';
 const Header = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-
+  // const [login,setLogin]=useState(true)
   // super simple auth check
-  const isAuthed = !!localStorage.getItem('token');
-
+  const jwtToken = Cookie.get('jwt_token');
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login', { replace: true });
+    Cookie.remove('jwt_token');
+    toast.success('Logout Successful');
+    setTimeout(()=>{
+      navigate('/auth', { replace: true });
+    })
+    // navigate('/auth', { replace: true });
+    
+    // setLogin(false);
   };
+  const authClick=()=>{
+    if(jwtToken !==undefined){
+      handleLogout()
+    }
+
+  }
+
 
   return (
     <div className='bg-slate-500 py-2 w-full'>
@@ -43,29 +55,7 @@ const Header = () => {
         </div>
 
         <div className='flex items-center justify-center gap-4'>
-          {!isAuthed ? (
-            <>
-              <Link
-                to='/login'
-                className='py-3 px-8 bg-blue-400 text-white text-lg font-sans font-medium rounded-xl'
-              >
-                Login
-              </Link>
-              <Link
-                to='/register'
-                className='py-3 px-8 bg-red-300 text-white text-lg font-sans font-medium rounded-xl'
-              >
-                Signup
-              </Link>
-            </>
-          ) : (
-            <button
-              onClick={handleLogout}
-              className='py-3 px-8 bg-emerald-600 text-white text-lg font-sans font-medium rounded-xl'
-            >
-              Logout
-            </button>
-          )}
+          <button className={`${jwtToken ? 'text-white text-xl bg-slate-600 px-12 py-5 rounded-xl border': ''}`} onClick={authClick}>{jwtToken ? 'Logout': ''}</button>
         </div>
       </div>
     </div>
