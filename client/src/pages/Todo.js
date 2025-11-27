@@ -47,7 +47,6 @@ const Todo = () => {
       const response = await api.post("/todo", payload);
       const returned = response.data?.data ?? response.data;
 
-      // prefer server-returned todo object, otherwise build one
       const created = returned && (returned._id || returned.id)
         ? {
             _id: returned._id ?? returned.id,
@@ -110,7 +109,7 @@ const Todo = () => {
 
   return (
     <div className="mx-auto">
-      <Header className="!pt-0" />
+      {/* <Header className="!pt-0" /> */}
       <form onSubmit={handleTodo} className="bg-white shadow-sm rounded-lg p-4 sm:flex sm:items-center sm:gap-4 px-10">
         <input
           className="w-full sm:flex-1 px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300"

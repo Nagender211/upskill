@@ -51,6 +51,11 @@ import RegistrionPage from './routeingPartices/RegistrionPage';
 import ProductPage from './routeingPartices/Product';
 import CartPage from './routeingPartices/Cart';
 import ProtectedRoute from './routeingPartices/ProtectedRoute';
+import Events from './routeingPartices/Events';
+import GithubPopulor from './routeingPartices/GithubPopulor';
+import NxrTrandz from './routeingPartices/NxrTrandz';
+import Demo from './componets/Demo';
+import NxtInner from './routeingPartices/NxtInner';
 
 
 
@@ -104,6 +109,11 @@ function App() {
       <Route exact path='/blog/:id' element={<BlogInnerPage />} />
       <Route exact path='/auth' element={<AuthLogin />} />
       <Route exact path='/regpage' element={<RegistrionPage />} />
+      <Route exact path='/events' element={<Events />} />
+      <Route exact path='/demo' element={<Demo />} />
+      <Route exact path='/gitpop' element={<ProtectedRoute childerns={<GithubPopulor />} />} />
+      <Route exact path='/' element={<ProtectedRoute childerns={<NxrTrandz />} />} />
+      <Route exact path='/products/:id' element={<ProtectedRoute childerns={<NxtInner />} />} />
       {/* <Route exact path='/products' element={<ProductPage />} />
       <Route exact path='/cart' element={<CartPage />} /> */}
       <Route exact path='/' element={<ProtectedRoute childerns={<HomePage />} />} />

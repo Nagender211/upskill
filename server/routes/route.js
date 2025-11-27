@@ -1,6 +1,6 @@
 import express from 'express';
 // const express=require('express')
-import {testing,singup, getUser, loggin, updateUser, httpReq, todoList, updateTodo, getAllTodo, deleateUser, deletTodo} from '../controllers/userController.js'
+import {testing,singup, getUser, loggin, updateUser, todoList, updateTodo, getAllTodo, deleateUser, deletTodo} from '../controllers/userController.js'
 import {createComment, deleteComment, getAllComets} from '../controllers/blogController.js'
 const router=express.Router();
 router.get('/hello',testing);
@@ -16,6 +16,6 @@ router.delete('/deletTodo/:id',deletTodo);
 router.post('/comment',createComment);
 router.delete('/comment-delet/:id',deleteComment);
 router.get('/get-all-comments',getAllComets);
-router.get('/new',httpReq)
+// router.get('/new',httpReq)
 
 export default router;

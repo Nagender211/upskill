@@ -99,6 +99,7 @@ export const loggin = async (req,res)=>{
 
 
 
+
     // todo applicaiton
 
 export const todoList=async(req,res)=>{
@@ -212,14 +213,3 @@ export const deletTodo=async(req,res)=>{
     }
 }
 
-
-export const httpReq=(req,res)=>{
-    try {
-        res.status(200).json({
-            message: "this is the new http requests"
-        })
-    } catch (error) {
-        console.log("error",error)
-        
-    }
-}
